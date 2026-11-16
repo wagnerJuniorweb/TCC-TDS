@@ -7,14 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EstiloNavalhaApplication {
 
     public static void main(String[] args) {
-
+        System.out.println(
+            "ESTILO & NAVALHA INICIADA COM SUCESSO!"
+        );
+        
         SpringApplication.run(
             EstiloNavalhaApplication.class,
             args
         );
-
-        System.out.println(
-            "ESTILO & NAVALHA INICIADA COM SUCESSO!"
-        );
     }
-}//1
+}
