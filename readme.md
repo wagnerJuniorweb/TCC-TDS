@@ -3,6 +3,7 @@ para iniciar o server primeiro baixe esse pack de extensão:
 
 para ligar o server você abre a pasta do projeto onde tem o pom.xml no gerenciador de arquivos, abre o cmd nessa pasta usando ou cd "C:pasta do projeto" ou escrevendo direto no gerenciador de arquivos, clica na área vazia como mostro nessa foto:
 <img width="726" height="444" alt="image" src="https://github.com/user-attachments/assets/aa7565b4-7bc8-42ef-be40-1feb682915c6" />
+
 depois escreve cmd e aperta enter que vai abrir o cmd já na pasta
 <img width="710" height="255" alt="image" src="https://github.com/user-attachments/assets/89402c6e-451b-4600-a3f9-b2e746106a1c" />
 ai você vai colocar esse comando: "mvn spring-boot:run" e depois acessar no navegador no endereço "localhost:8080" que o site vai tá funcionando
