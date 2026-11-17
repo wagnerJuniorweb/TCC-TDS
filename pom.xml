@@ -13,9 +13,9 @@
     </parent>
 
     <groupId>com.estiloenavalha</groupId>
-    <artifactId>tcc-tds</artifactId>
+    <artifactId>TCC-TDS</artifactId>
     <version>1.0.0</version>
-    <name>Estilo & Navalha</name>
+    <name>Estilo e Navalha</name>
 
     <properties>
         <java.version>17</java.version>
@@ -38,10 +38,14 @@
     </dependencies>
 
     <build>
+        <sourceDirectory>${project.basedir}</sourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.estiloenavalha.EstiloNavalhaApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -1,0 +1,702 @@
+/* =================================
+   ESTILO & NAVALHA
+   CSS PRINCIPAL
+================================= */
+
+:root {
+    --gold: #d4af37;
+    --gold-light: #e6c65c;
+    --background: #101010;
+    --surface: #252525;
+    --card: #191919;
+    --text: #ffffff;
+    --muted: #bdbdbd;
+    --border: #383838;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* CABEÇALHO */
+
+.header {
+    background: #252525;
+    min-height: 100px;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    border: 3px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 23px;
+    box-shadow: 0 0 12px #d4af3720;
+}
+
+.logo-area h2 {
+    color: var(--gold);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.logo-area h2 span,
+.footer-logo span {
+    color: white;
+}
+
+.header nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.header nav a:hover {
+    color: var(--gold);
+}
+
+.menu-button {
+    display: none;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* APRESENTAÇÃO */
+
+.hero {
+    min-height: 500px;
+    padding: 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        linear-gradient(#000000c9, #000000dc),
+        url("https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1600")
+        center/cover;
+}
+
+.gold-text {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(35px, 6vw, 65px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: #dddddd;
+    font-size: 17px;
+    max-width: 500px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.primary-button {
+    display: inline-block;
+    background: var(--gold);
+    color: #111;
+    text-decoration: none;
+    padding: 18px 35px;
+    border-radius: 8px;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.primary-button:hover {
+    background: var(--gold-light);
+    transform: translateY(-3px);
+}
+
+/* SEÇÃO DE AGENDAMENTO */
+
+.booking-section {
+    max-width: 1150px;
+    margin: 60px auto;
+    padding: 25px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: clamp(26px, 4vw, 40px);
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* PROGRESSO */
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    background: var(--surface);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.progress-step {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #171717;
+    border: 2px solid #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.progress-step.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: #111;
+}
+
+.progress-line {
+    height: 4px;
+    background: #444;
+    width: 15%;
+}
+
+/* CARTÕES */
+
+.booking-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-top: 7px solid var(--gold);
+    border-radius: 22px;
+    padding: 35px;
+    box-shadow: 0 15px 40px #00000030;
+}
+
+.booking-card h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 26px;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+    animation: appear .4s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SERVIÇOS */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.service-card {
+    background: var(--card);
+    border: 2px solid #333;
+    border-radius: 22px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+}
+
+.service-card.selected {
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 20px #d4af3730;
+}
+
+.service-card img,
+.placeholder-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.placeholder-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 70px;
+    color: #555;
+    background: linear-gradient(135deg, #252525, #101010);
+}
+
+.service-info {
+    padding: 20px;
+}
+
+.service-info h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.service-info p {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--gold);
+}
+
+.selection-summary {
+    background: #171717;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.selection-summary strong {
+    color: var(--gold);
+}
+
+/* FORMULÁRIOS */
+
+.form-control {
+    width: 100%;
+    background: #171717;
+    color: white;
+    border: 2px solid #444;
+    padding: 17px;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 25px;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-control:focus {
+    border-color: var(--gold);
+}
+
+.form-control option {
+    background: #171717;
+}
+
+.subheading {
+    margin: 15px 0;
+    color: var(--gold);
+}
+
+.booking-card label {
+    display: block;
+    margin-top: 15px;
+}
+
+/* HORÁRIOS */
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0 30px;
+}
+
+.time-grid button {
+    padding: 15px 5px;
+    background: #171717;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.time-grid button:hover,
+.time-grid button.selected {
+    background: var(--gold);
+    color: #111;
+    border-color: var(--gold);
+}
+
+/* BOTÕES */
+
+.next-button,
+.back-button {
+    padding: 17px 25px;
+    border-radius: 9px;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.next-button {
+    background: var(--gold);
+    color: #111;
+    width: 100%;
+    margin-top: 25px;
+}
+
+.next-button:hover {
+    background: var(--gold-light);
+}
+
+.back-button {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    width: 40%;
+    margin-top: 25px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.button-group .next-button {
+    flex: 1;
+}
+
+.back-button:hover {
+    background: #444;
+}
+
+/* PAGAMENTO */
+
+.payment-option {
+    background: #171717;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.payment-option label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.payment-option input {
+    accent-color: var(--gold);
+    width: 20px;
+    height: 20px;
+}
+
+.payment-option p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.pix-area {
+    display: none;
+    background: #302a17;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.pix-area.show {
+    display: block;
+}
+
+.pix-area h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.pix-key {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    background: #171717;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.pix-key strong {
+    word-break: break-word;
+}
+
+.pix-key button {
+    background: var(--gold);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pix-warning {
+    color: #e5d6a3;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* RESUMO */
+
+.final-summary {
+    background: #171717;
+    padding: 25px;
+    border-radius: 12px;
+    margin-top: 25px;
+    line-height: 2.2;
+}
+
+.final-summary h3 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.final-summary strong {
+    color: var(--gold);
+}
+
+/* SUCESSO */
+
+.success-message {
+    display: none;
+    background: #173324;
+    border: 1px solid #27965c;
+    padding: 35px;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 25px;
+}
+
+.success-message.show {
+    display: block;
+}
+
+.success-message h2 {
+    color: #65db9a;
+    margin-bottom: 15px;
+}
+
+.success-message p {
+    line-height: 1.8;
+}
+
+/* SERVIÇOS INSTITUCIONAIS */
+
+.services-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: #1b1b1b;
+}
+
+.services-section h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.services-section > p:last-child {
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #090909;
+    text-align: center;
+    padding: 45px 20px;
+    line-height: 2.2;
+    color: var(--muted);
+}
+
+.footer-logo {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 700px) {
+
+    .header {
+        min-height: 85px;
+        padding: 12px 20px;
+    }
+
+    .logo {
+        width: 55px;
+        height: 55px;
+        font-size: 20px;
+    }
+
+    .logo-area h2 {
+        font-size: 16px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .header nav {
+        display: none;
+        position: absolute;
+        top: 85px;
+        left: 0;
+        width: 100%;
+        background: #252525;
+        padding: 25px;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .header nav.show {
+        display: flex;
+    }
+
+    .hero {
+        min-height: 430px;
+        padding: 70px 20px;
+    }
+
+    .booking-section {
+        padding: 12px;
+        margin: 35px auto;
+    }
+
+    .booking-card {
+        padding: 20px 15px;
+    }
+
+    .service-grid {
+        gap: 12px;
+    }
+
+    .service-card {
+        border-radius: 15px;
+    }
+
+    .service-card img,
+    .placeholder-image {
+        height: 145px;
+    }
+
+    .service-info {
+        padding: 13px;
+    }
+
+    .service-info h3 {
+        font-size: 14px;
+        min-height: 34px;
+    }
+
+    .service-info p {
+        font-size: 18px;
+    }
+
+    .time-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .progress-step {
+        width: 40px;
+        height: 40px;
+    }
+
+    .progress-container {
+        padding: 15px 8px;
+    }
+
+    .button-group {
+        flex-direction: column-reverse;
+    }
+
+    .button-group .next-button,
+    .back-button {
+        width: 100%;
+    }
+
+    .pix-key {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Estilo & Navalha | Barbearia</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo-area">
+        <div class="logo">
+            <span>EN</span>
+        </div>
+
+        <h2>ESTILO <span>& NAVALHA</span></h2>
+    </div>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
+    <nav id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#agendamento">Agendamento</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="hero" id="inicio">
+        <p class="gold-text">ESTILO, PERSONALIDADE E TRADIÇÃO</p>
+
+        <h1>Sua melhor versão<br>
+            começa aqui.
+        </h1>
+
+        <p class="hero-description">
+            Mais que um corte, uma experiência.
+            Seu estilo merece o melhor.
+        </p>
+
+        <a href="#agendamento" class="primary-button">
+            AGENDAR HORÁRIO →
+        </a>
+    </section>
+
+    <section class="booking-section" id="agendamento">
+
+        <div class="section-heading">
+            <p class="gold-text">RESERVE SEU MOMENTO</p>
+            <h2>Agendamento Online</h2>
+            <p>Escolha o serviço, profissional, data e horário desejado.</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-step active" id="progress1">1</div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="progress2">2</div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="progress3">3</div>
+            <div class="progress-line"></div>
+            <div class="progress-step" id="progress4">4</div>
+        </div>
+
+        <!-- ETAPA 1: SERVIÇOS -->
+
+        <div class="booking-card step active" id="step1">
+
+            <h2>✂ Escolha o Serviço</h2>
+
+            <div class="service-grid" id="serviceGrid">
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Corte', 35)">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600"
+                         alt="Corte masculino">
+
+                    <div class="service-info">
+                        <h3>Corte</h3>
+                        <p>R$ 35,00</p>
+                    </div>
+                </div>
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Corte + Barba', 65)">
+                    <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600"
+                         alt="Corte e barba">
+
+                    <div class="service-info">
+                        <h3>Corte + Barba</h3>
+                        <p>R$ 65,00</p>
+                    </div>
+                </div>
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Barba', 35)">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600"
+                         alt="Barba">
+
+                    <div class="service-info">
+                        <h3>Barba</h3>
+                        <p>R$ 35,00</p>
+                    </div>
+                </div>
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Corte Máquina 1 Pente', 15)">
+                    <div class="placeholder-image">✂</div>
+
+                    <div class="service-info">
+                        <h3>Corte máquina 1 pente</h3>
+                        <p>R$ 15,00</p>
+                    </div>
+                </div>
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Corte Máquina 2 Pentes', 20)">
+                    <div class="placeholder-image">✂</div>
+
+                    <div class="service-info">
+                        <h3>Corte máquina 2 pentes</h3>
+                        <p>R$ 20,00</p>
+                    </div>
+                </div>
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Pigmentação', 25)">
+                    <div class="placeholder-image">✂</div>
+
+                    <div class="service-info">
+                        <h3>Pigmentação</h3>
+                        <p>R$ 25,00</p>
+                    </div>
+                </div>
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Corte + Pigmentação', 60)">
+                    <div class="placeholder-image">✂</div>
+
+                    <div class="service-info">
+                        <h3>Corte + Pigmentação</h3>
+                        <p>R$ 60,00</p>
+                    </div>
+                </div>
+
+                <div class="service-card"
+                     onclick="selectService(this, 'Corte + Chopp 300ml', 39.90)">
+                    <img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600"
+                         alt="Bebida">
+
+                    <div class="service-info">
+                        <h3>Corte + Chopp 300ml</h3>
+                        <p>R$ 39,90</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="selection-summary">
+                <span>Serviço selecionado:</span>
+                <strong id="selectedServiceText">Nenhum</strong>
+            </div>
+
+            <button class="next-button" onclick="nextStep(2)">
+                CONTINUAR →
+            </button>
+
+        </div>
+
+        <!-- ETAPA 2: PROFISSIONAL E DATA -->
+
+        <div class="booking-card step" id="step2">
+
+            <h2>♔ Escolha o Profissional</h2>
+
+            <select id="barber" class="form-control">
+                <option value="">Selecione um profissional</option>
+                <option value="Barbeiro 1">Barbeiro 1</option>
+                <option value="Barbeiro 2">Barbeiro 2</option>
+                <option value="Barbeiro 3">Barbeiro 3</option>
+            </select>
+
+            <h3 class="subheading">Escolha a data</h3>
+
+            <input type="date" id="date" class="form-control">
+
+            <h3 class="subheading">Escolha o horário</h3>
+
+            <div class="time-grid" id="timeGrid">
+                <button type="button" onclick="selectTime(this, '09:00')">09:00</button>
+                <button type="button" onclick="selectTime(this, '09:30')">09:30</button>
+                <button type="button" onclick="selectTime(this, '10:00')">10:00</button>
+                <button type="button" onclick="selectTime(this, '10:30')">10:30</button>
+                <button type="button" onclick="selectTime(this, '11:00')">11:00</button>
+                <button type="button" onclick="selectTime(this, '11:30')">11:30</button>
+                <button type="button" onclick="selectTime(this, '13:00')">13:00</button>
+                <button type="button" onclick="selectTime(this, '13:30')">13:30</button>
+                <button type="button" onclick="selectTime(this, '14:00')">14:00</button>
+                <button type="button" onclick="selectTime(this, '14:30')">14:30</button>
+                <button type="button" onclick="selectTime(this, '15:00')">15:00</button>
+                <button type="button" onclick="selectTime(this, '15:30')">15:30</button>
+                <button type="button" onclick="selectTime(this, '16:00')">16:00</button>
+                <button type="button" onclick="selectTime(this, '16:30')">16:30</button>
+                <button type="button" onclick="selectTime(this, '17:00')">17:00</button>
+                <button type="button" onclick="selectTime(this, '17:30')">17:30</button>
+            </div>
+
+            <div class="button-group">
+                <button class="back-button" onclick="nextStep(1)">VOLTAR</button>
+                <button class="next-button" onclick="nextStep(3)">CONTINUAR →</button>
+            </div>
+
+        </div>
+
+        <!-- ETAPA 3: DADOS DO CLIENTE -->
+
+        <div class="booking-card step" id="step3">
+
+            <h2>♙ Seus Dados</h2>
+
+            <label for="clientName">Nome completo</label>
+            <input type="text" id="clientName"
+                   class="form-control" placeholder="Digite seu nome">
+
+            <label for="clientPhone">WhatsApp</label>
+            <input type="tel" id="clientPhone"
+                   class="form-control"
+                   placeholder="(61) 99999-9999">
+
+            <div class="button-group">
+                <button class="back-button" onclick="nextStep(2)">VOLTAR</button>
+                <button class="next-button" onclick="nextStep(4)">CONTINUAR →</button>
+            </div>
+
+        </div>
+
+        <!-- ETAPA 4: PAGAMENTO -->
+
+        <div class="booking-card step" id="step4">
+
+            <h2>♢ Forma de Pagamento</h2>
+
+            <div class="payment-option">
+                <label>
+                    <input type="radio" name="payment"
+                           value="PIX" onchange="showPix()">
+                    <span>Pagamento antecipado via Pix</span>
+                </label>
+                <p>Realize o pagamento antes do atendimento.</p>
+            </div>
+
+            <div class="pix-area" id="pixArea">
+
+                <h3>Pagamento via Pix</h3>
+
+                <p>Utilize a chave Pix da barbearia:</p>
+
+                <div class="pix-key">
+                    <strong id="pixKey">SUA_CHAVE_PIX_AQUI</strong>
+                    <button onclick="copyPix()">COPIAR</button>
+                </div>
+
+                <p class="pix-warning">
+                    Após realizar o pagamento, envie o comprovante
+                    para a barbearia.
+                </p>
+
+            </div>
+
+            <div class="payment-option">
+                <label>
+                    <input type="radio" name="payment"
+                           value="PRESENCIAL">
+                    <span>Pagamento presencial</span>
+                </label>
+                <p>Pague diretamente na barbearia.</p>
+            </div>
+
+            <div class="final-summary">
+                <h3>Resumo do agendamento</h3>
+
+                <p>Serviço: <strong id="summaryService">-</strong></p>
+                <p>Profissional: <strong id="summaryBarber">-</strong></p>
+                <p>Data: <strong id="summaryDate">-</strong></p>
+                <p>Horário: <strong id="summaryTime">-</strong></p>
+                <p>Valor: <strong id="summaryPrice">-</strong></p>
+            </div>
+
+            <div class="button-group">
+                <button class="back-button" onclick="nextStep(3)">VOLTAR</button>
+                <button class="next-button" onclick="finishBooking()">
+                    CONFIRMAR AGENDAMENTO
+                </button>
+            </div>
+
+        </div>
+
+        <div id="successMessage" class="success-message">
+            <h2>✓ Agendamento realizado!</h2>
+            <p id="successText"></p>
+            <button class="next-button" onclick="location.reload()">
+                VOLTAR AO INÍCIO
+            </button>
+        </div>
+
+    </section>
+
+    <!-- SERVIÇOS -->
+
+    <section class="services-section" id="servicos">
+        <p class="gold-text">NOSSA ESPECIALIDADE</p>
+        <h2>Seu estilo em boas mãos</h2>
+        <p>Profissionalismo, qualidade e atenção aos detalhes.</p>
+    </section>
+
+    <!-- CONTATO -->
+
+    <footer id="contato">
+        <div class="footer-logo">
+            ESTILO <span>& NAVALHA</span>
+        </div>
+
+        <p>Seu estilo é nossa assinatura.</p>
+
+        <p>© 2026 Estilo & Navalha. Todos os direitos reservados.</p>
+    </footer>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
