@@ -6,4 +6,5 @@ para ligar o server você abre a pasta do projeto onde tem o pom.xml no gerencia
 
 depois escreve cmd e aperta enter que vai abrir o cmd já na pasta
 <img width="710" height="255" alt="image" src="https://github.com/user-attachments/assets/89402c6e-451b-4600-a3f9-b2e746106a1c" />
+
 ai você vai colocar esse comando: "mvn spring-boot:run" e depois acessar no navegador no endereço "localhost:8080" que o site vai tá funcionando
